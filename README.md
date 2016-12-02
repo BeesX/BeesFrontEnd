@@ -1,5 +1,8 @@
 # Web前端学习路线
 
+前端技术图谱
+
+![](https://github.com/guoxiaoxing/web-front-end-learning-route/raw/master/art/web-front-end-skill-map.png)
 
 # 技术框架
  
