@@ -16,6 +16,11 @@
 关注文章的最新的动态。
 
 
+学习目标
+
+>我是Android开发起家, 因此前端的学习方向也是以移动前端开发为主要方向。
+
+
 前端开发技术图谱
 
 ![](https://github.com/guoxiaoxing/web-front-end-learning-route/raw/master/art/web-front-end-skill-map.png)
