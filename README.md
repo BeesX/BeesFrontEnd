@@ -55,7 +55,7 @@
 >
 >《JavaScript设计模式与开发实践》
 >
->《高性能JavaScript》
+>《高性能JavaScript》                                                                                                                                                                                                                                                                            
 
 ## DOM
    
