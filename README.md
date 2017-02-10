@@ -52,7 +52,7 @@
 >《JavaScript高级程序设计（第3版）》
 >
 >《你不知道的JS》
->
+> 
 >《JavaScript设计模式与开发实践》
 >
 >《高性能JavaScript》                                                                                                                                                                                                                                                                            
