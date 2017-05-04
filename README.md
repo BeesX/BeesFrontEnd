@@ -19,7 +19,7 @@
 
 ## JavaScript
 
-[1JavaScrfit基本概念]()
+[1JavaScrfit语法篇：基本概念](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：基本概念.md)
 
 ## HTML
 
