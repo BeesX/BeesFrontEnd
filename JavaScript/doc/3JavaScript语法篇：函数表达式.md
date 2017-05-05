@@ -1,4 +1,4 @@
-# JavaScrit语法篇：函数表达式
+# JavaScript语法篇：函数表达式
 
 作者: 郭孝星  
 邮箱: guoxiaoxingse@163.com  

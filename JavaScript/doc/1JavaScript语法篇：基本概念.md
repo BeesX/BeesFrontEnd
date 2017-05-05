@@ -1,4 +1,4 @@
-# JavaScrit语法篇：基本概念
+# JavaScript语法篇：基本概念
 
 作者: 郭孝星  
 邮箱: guoxiaoxingse@163.com  

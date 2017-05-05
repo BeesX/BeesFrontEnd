@@ -1,4 +1,4 @@
-# JavaScrit语法篇：面向对象
+# JavaScript语法篇：面向对象
 
 作者: 郭孝星  
 邮箱: guoxiaoxingse@163.com  

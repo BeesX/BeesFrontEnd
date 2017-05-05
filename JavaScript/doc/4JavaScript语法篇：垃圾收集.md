@@ -1,4 +1,4 @@
-# JavaScrit语法篇：垃圾收集
+# JavaScript语法篇：垃圾收集
 
 作者: 郭孝星  
 邮箱: guoxiaoxingse@163.com  

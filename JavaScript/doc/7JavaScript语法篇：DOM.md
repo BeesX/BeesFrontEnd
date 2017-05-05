@@ -1,4 +1,4 @@
-# JavaScrit语法篇：BOM
+# JavaScript语法篇：BOM
 
 作者: 郭孝星  
 邮箱: guoxiaoxingse@163.com  
