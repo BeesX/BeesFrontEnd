@@ -20,12 +20,12 @@
 ## JavaScript
 
 - [1JavaScript语法篇：基本概念](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：基本概念.md)
-- [2JavaScript语法篇：数据类型](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：数据类型.md)
-- [3JavaScript语法篇：函数表达式](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：函数表达式.md)
-- [4JavaScript语法篇：垃圾收集](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：垃圾收集.md)
-- [5JavaScript语法篇：面向对象](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：面向对象.md)
-- [6JavaScript语法篇：BOM](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：BOM.md)
-- [7JavaScript语法篇：DOM](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/1JavaScript语法篇：DOM.md)
+- [2JavaScript语法篇：数据类型](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/2JavaScript语法篇：数据类型.md)
+- [3JavaScript语法篇：函数表达式](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/3JavaScript语法篇：函数表达式.md)
+- [4JavaScript语法篇：垃圾收集](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/4JavaScript语法篇：垃圾收集.md)
+- [5JavaScript语法篇：面向对象](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/5JavaScript语法篇：面向对象.md)
+- [6JavaScript语法篇：BOM](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/6JavaScript语法篇：BOM.md)
+- [7JavaScript语法篇：DOM](https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/JavaScript/doc/7JavaScript语法篇：DOM.md)
 
 ## HTML
 
