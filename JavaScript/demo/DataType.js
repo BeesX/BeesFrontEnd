@@ -25,6 +25,13 @@ var writeDataType = function(){
     document.writeln("unshift：" + colors.unshift("black","yellow") + "--" + colors.toString()+ "<br/>");
     document.writeln("reverse：" + numbers.reverse() + "--" + numbers.toString()+ "<br/>");
     document.writeln("sort：" + numbers.sort(compare) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("concat：" + numbers.concat(colors, 11) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("slice：" + numbers.slice(2, 5) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("splice：" + numbers.splice(0, 1) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("splice：" + numbers.splice(2, 0, 12) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("splice：" + numbers.splice(2, 1, 14) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("indexOf：" + numbers.indexOf(14) + "--" + numbers.toString()+ "<br/>");
+    document.writeln("lastIndexOf：" + numbers.indexOf(2) + "--" + numbers.toString()+ "<br/>");
 };
 
 function compare(value1, value2) {
