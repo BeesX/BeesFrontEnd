@@ -17,7 +17,6 @@
 
 https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/README.md
 
-
 ### 函数参数
 
 函数参数不用提前定义，函数在使用时不介意传递进来了多少个参数，也不在乎传进来的参数是什么类型。传递进来的参数除了可以通过形参来
@@ -28,13 +27,25 @@ https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/README.m
 
 ### 函数声明
 
+>函数时对象，函数名是指针，a()是调用函数，a则是访问函数指针。
+
 函数的声明方式
 
 ```javascript
-function functionName(arg0, arg1, arg2){
-    statements;
+function sum(num1, num2){
+    return num1 + num2;
 }
 ```
+
+```javascript
+var sum = function(num1, num2) {
+  return num1 + num2;
+}
+````
+```javascript
+var sum = new Function("num1", "num2", "num1 + num2");
+```
+
 
 函数在定义时不用提前指定是否返回值，函数体内部可以通过return语句返回需要的返回值。
 
