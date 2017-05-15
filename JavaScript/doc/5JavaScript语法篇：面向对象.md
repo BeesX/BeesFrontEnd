@@ -16,3 +16,12 @@
 文章目录
 
 https://github.com/guoxiaoxing/web-front-end-learning-route/blob/master/README.md
+
+## 单体内置对象
+
+>内置对象：由ECMAScript实现提供的，不依赖于宿主环境的对象，它们在ECMAScript实程序执行之前就已经存在了。
+
+### Global对象
+
+URI编码方法
+

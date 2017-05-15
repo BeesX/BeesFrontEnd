@@ -12,14 +12,14 @@ function writeFunction() {
         return sum.apply(this, arguments);
     }
 
-    function callSum2(num1, num2) {
-        return sum.apply(this, arguments);
-    }
 
     function callSum2(num1, num2) {
         return sum.apply(this, [num1, num2]);
     }
 
+    function callSum3(num1, num2) {
+        return sum.call(this, num1, num2);
+    }
 
     document.writeln("sum：" + sum(1, 2) + "<br/>");
 
@@ -32,6 +32,20 @@ function writeFunction() {
     document.writeln("length：" + sum.prototype + "<br/>");
     document.writeln("callSum1(1, 2) ：" + callSum1(1, 2) + "<br/>");
     document.writeln("callSum2(1, 2) ：" + callSum2(1, 2) + "<br/>");
+    document.writeln("callSum3(1, 2) ：" + callSum3(1, 2) + "<br/>");
+
+
+    window.color = "red";
+    var o = {color : "blue"};
+
+    function readColor() {
+        document.writeln(this.color + "<br/>");
+    }
+
+    readColor();
+    readColor.call(o);
+    var bindReadColor = readColor.bind(o);
+    bindReadColor();
 }
 
 writeFunction();

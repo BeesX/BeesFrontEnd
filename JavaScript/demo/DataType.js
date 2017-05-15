@@ -7,6 +7,8 @@ var writeDataType = function () {
     var b = a - 2;
     var c = a + 2;
 
+    var d = 123.12313;
+
     document.writeln("基本类型" + "<br/>");
     document.writeln(typeof 1 + '<br/>');
     document.writeln(typeof true + "<br/>");
@@ -16,6 +18,11 @@ var writeDataType = function () {
     document.writeln(typeof 1 + "<br/>");
     document.writeln(0.05 + 0.25);
     document.writeln(typeof message + "<br/>");
+    document.writeln(typeof Number("1") + "<br/>");
+    document.writeln(typeof (new Number("2")) + "<br/>");
+    document.writeln("toString：" + d.toString(2) + "<br/>");
+    document.writeln("toFixed：" + d.toFixed(2) + "<br/>");
+    document.writeln("toExponential：" + d.toExponential(2) + "<br/>" + "<br/>");
 
     document.writeln("Array类型" + "<br/>");
 

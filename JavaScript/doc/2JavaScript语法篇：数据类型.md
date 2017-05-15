@@ -28,6 +28,21 @@ Boolean：Boolean包含true与false两个值。
 Number：Number类型使用IEEE754格式来表示整数与浮点数。
 String：String类型用来表示由0或多个16位Unicode字符组成的字符串。
 ```
+基本类型在调用方法时会自动创建其对应的包装类型，因为基本类型是无法调用方法的，当该方法执行结束后会自动销毁该
+对象。
+
+### Boolean
+
+### Number
+
+```
+toString()：传入一个int值，表示输出的进制数。
+toFixed()：传入一个int值，表示保留小数几位。
+toExponential()：传入一个int值，表示可续计数法几位。
+toPrecision()：根据值大小，选择是以固定格式（fix）还是指数格式（exponential）返回数值。
+```
+### String
+
 ## 引用数据类型
 
 ### Object类型
