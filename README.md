@@ -1,22 +1,12 @@
-# Web前端学习路线
+# <img src="https://github.com/guoxiaoxing/web-front-end/raw/master/art/logo.png" alt="web-front-end" width="80" height="80" align="bottom"/> Web前端
 
-作者: 郭孝星  
-邮箱: guoxiaoxingse@163.com  
-博客: http://blog.csdn.net/allenwells   
-简书: http://www.jianshu.com/users/66a47e04215b/latest_articles  
+## 功能介绍
 
-**关于作者**
+[![License](https://img.shields.io/github/issues/guoxiaoixng/web-front-end.svg)](https://jitpack.io/#guoxiaoixng/web-front-end)
+[![Stars](https://img.shields.io/github/stars/guoxiaoixng/web-front-end.svg)](https://jitpack.io/#guoxiaoixng/web-front-end)
+[![Stars](https://img.shields.io/github/forks/guoxiaoixng/web-front-end.svg)](https://jitpack.io/#guoxiaoixng/web-front-end)
+[![Forks](https://img.shields.io/github/issues/guoxiaoixng/web-front-end.svg)](https://jitpack.io/#guoxiaoixng/web-front-end)
 
->郭孝星，非著名程序员，主要从事Android平台基础架构与中间件方面的工作，爱好广泛，技术栈主要涉及以下几个方面
->
->- Android/Linux
->- Java/Kotlin/JVM
->- Python
->- JavaScript/React/ReactNative
->- DataStructure/Algorithm
->
->文章首发于[Github](https://github.com/guoxiaoxing)，后续也会同步在[简书](http://www.jianshu.com/users/66a47e04215b/latest_articles)与
-[CSDN](http://blog.csdn.net/allenwells)等博客平台上。文章中如果有什么问题，欢迎发邮件与我交流，邮件可发至guoxiaoxingse@163.com。
 
 前端开发技术图谱
 
