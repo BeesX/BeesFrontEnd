@@ -7,7 +7,7 @@
 
 前端开发技术图谱
 
-<img src="(https://github.com/BeesFrontEnd/BeesFrontEnd/raw/master/art/front-end-skill-map.png">
+<img src="https://github.com/BeesFrontEnd/BeesFrontEnd/raw/master/art/front-end-skill-map.png">
 
 - [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks)
 
