@@ -10,6 +10,7 @@
 <img src="https://github.com/BeesFrontEnd/BeesFrontEnd/raw/master/art/front-end-skill-map.png">
 
 - [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks)
+- [Web Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
 
 ## 基础技能
 
@@ -31,7 +32,7 @@
 ## 开源框架
 
 - [Grunt](http://gruntjs.com/)：前端自动化工具，提高工作效率
-- [less css](http://lesscss.org/)：优秀的CSS预处理器
+- [less css](http://lesscss.org/)：优秀的CSS预处理器 
 - [bootstrap](http://getbootstrap.com/)：优秀的CSS框架，对没有设计师的团队很不错，与less结合使用效果完美
 - [requirejs](http://requirejs.org/)：AMD规范的模块加载器，前端模块化趋势的必备工具
 - [Node.js](http://nodejs.org/)：JavaScript也可以做后台，前端工程师地位更上一步
