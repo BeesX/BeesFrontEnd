@@ -9,20 +9,43 @@ var writeDataType = function () {
 
     var d = 123.12313;
 
-    document.writeln("基本类型" + "<br/>");
+    document.writeln("基本数据类型" + "<br/>");
     document.writeln(typeof 1 + '<br/>');
     document.writeln(typeof true + "<br/>");
     document.writeln(typeof writeDataType + "<br/>");
     document.writeln(typeof null + "<br/>");
     document.writeln(typeof 13 + "<br/>");
     document.writeln(typeof 1 + "<br/>");
-    document.writeln(0.05 + 0.25);
+    document.writeln(0.1 + 0.2 + "<br/>");
+    document.writeln(0.05 + 0.25 + "<br/>");
     document.writeln(typeof message + "<br/>");
+    document.writeln(Boolean(1 == '1') + "<br/>");
+    document.writeln(Boolean(1 === '1') + "<br/>");
+    document.writeln(Boolean(1 == 2) + "<br/>");
     document.writeln(typeof Number("1") + "<br/>");
     document.writeln(typeof (new Number("2")) + "<br/>");
     document.writeln("toString：" + d.toString(2) + "<br/>");
     document.writeln("toFixed：" + d.toFixed(2) + "<br/>");
     document.writeln("toExponential：" + d.toExponential(2) + "<br/>" + "<br/>");
+
+    document.writeln("引用数据类型" + "<br/>");
+
+    var person = new Object();
+    person.name = "LiMing";
+    document.writeln(person.name + "<br/>");
+
+    var a = 1;
+    var b = 2;
+
+    function add(a, b) {
+        a++;
+        b++;
+    }
+
+    add(a, b);
+
+    document.writeln(a + "<br/>");
+    document.writeln(b + "<br/>");
 
     document.writeln("Array类型" + "<br/>");
 
@@ -121,8 +144,6 @@ var writeDataType = function () {
     document.writeln("lastMatch：" + RegExp.lastMatch + "<br/>");
     document.writeln("lastParen：" + RegExp.lastParen + "<br/>");
     document.writeln("multiple：" + RegExp.multiple + "<br/>");
-
-
 
 };
 
