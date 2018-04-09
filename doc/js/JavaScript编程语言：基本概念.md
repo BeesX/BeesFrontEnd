@@ -63,7 +63,12 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 3. 数组最多可以容纳4294967295个项，如果超出这个范围，可能导致运行时间超长的脚本错误。
 4. 使用Array.isArray()检测是否是一个数组。
 5. 使用join()方法可以为数组添加项分隔符。
-6. 
+6. 栈方法push()与pop()。
+7. 队列方法shift()与unshift()。
+8. 排序方法reverse()与sort()。
+9. 拼接方法concat()。
+10. 裁剪方法splice()。
+11. 位置方法indexOf()与lastIndexOf()。
 
 ## 三 控制语句
 
