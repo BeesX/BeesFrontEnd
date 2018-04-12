@@ -46,15 +46,6 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 
 #### Object
 
-```javascript
-
-```
-
-
-```javascript
-
-```
-
 
 #### Array
 
@@ -69,6 +60,34 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 9. 拼接方法concat()。
 10. 裁剪方法splice()。
 11. 位置方法indexOf()与lastIndexOf()。
+12. 迭代方法every()、filter()、forEach()、map()、some()。
+13. 归并方法reduce()、reduceRight()。
+
+#### Date
+
+1. parse()方法接收一个日期字符串，然后尝试解析成日期的毫秒数。
+2. UTC()方法接收一组数字，然后尝试解析成日期的毫秒数。
+3. now()方法返回当前日期和时间的毫秒数。
+
+#### RegExp
+
+```javascript
+var expression = /pattern/flags/
+```
+pattern表示正则表达式，flags表示标志位：
+
+- g表示全局模式。
+- i表示不区分大小写。
+- m表示多行模式。
+
+#### Global
+
+全局方法
+
+1. eval()
+2. encodeURI()
+
+#### Math
 
 ## 三 控制语句
 
@@ -87,4 +106,34 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 
 1. JavaScript函数函数是存储在arguments数组里的，因此它不介意传递了多少个参数进来以及参数的类型是什么。
 2. JavaScript函数没有重载，参数不定，也没有函数签名的特性。
+3. 函数声明会在解析器执行的时候会进行一个函数声明提升的过程，读取并将函数声明添加到执行环境中，函数表达式则不会。
+4. 函数可以作为值进行传递。
+5. 函数内部对象arguments是一个数组对象，包含着传入函数中的所有参数。arguments.callee属性是一个指针，指向arguments对应的函数。
+6. apply()方法与call()可以用来传递参数和扩展函数作用域。
 
+> 函数名是指针，函数是对象。
+
+三种创建函数的方式
+
+第一种：函数声明。
+
+```javascript
+function sum(num1, num2){
+    return num1 + num2;
+}
+```
+
+第二种：函数表达式。
+
+
+```javascript
+var sum = function(num1, num2){
+    return num1 + num2;
+};
+```
+
+第三种：函数声明。
+
+```javascript
+var sum = new Function("num1", "num2", "return nun1 + num2")
+```

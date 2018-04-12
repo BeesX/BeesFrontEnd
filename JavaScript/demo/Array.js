@@ -25,5 +25,18 @@ document.writeln(colors.indexOf(3) + "<br/>");
 document.writeln(colors.indexOf("3") + "<br/>");
 document.writeln(colors.lastIndexOf("5") + "<br/>");
 
+colors.forEach(function (item, index, array) {
+    document.writeln(index + " : " + item + "<br/>");
+});
 
+var filterColors = colors.filter(function (item, index, array) {
+    return item > 5;
+});
 
+document.writeln(filterColors + "<br/>");
+
+var reduceColors =  colors.reduce(function (prev, our, index, array) {
+    return prev + our;
+});
+
+document.writeln(reduceColors + "<br/>");

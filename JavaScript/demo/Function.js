@@ -18,6 +18,11 @@ function writeFunction() {
     }
 
     function callSum3(num1, num2) {
+
+        document.writeln(arguments.callee + "<br/>");
+
+        document.writeln(this.constructor + "<br/>");
+
         return sum.call(this, num1, num2);
     }
 
@@ -34,7 +39,6 @@ function writeFunction() {
     document.writeln("callSum2(1, 2) ：" + callSum2(1, 2) + "<br/>");
     document.writeln("callSum3(1, 2) ：" + callSum3(1, 2) + "<br/>");
 
-
     window.color = "red";
     var o = {color : "blue"};
 
@@ -45,7 +49,27 @@ function writeFunction() {
     readColor();
     readColor.call(o);
     var bindReadColor = readColor.bind(o);
-    bindReadColor();
+    bindReadColor();w
+
+    document.writeln(callSum3.length + "<br/>");
+    document.writeln(callSum3.prototype + "<br/>");
+
+
+    window.color = "red";
+    var field = {
+        color : "green"
+    };
+
+    function printColor() {
+        document.writeln(this.color + "<br/>");
+    }
+
+    printColor();
+
+    printColor.call(this);
+    printColor.call(window);
+    printColor.call(field)
 }
 
 writeFunction();
+
