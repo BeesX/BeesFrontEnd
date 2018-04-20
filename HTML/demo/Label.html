@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
+    <!--元数据-->
+    <meta charset="UTF-8" http-equiv="元信息名称，具有特殊意义，可以向浏览器传回有用的值" content="元信息值" name="元信息名称，可以随意指定">
 
     <!--标题-->
     <title>标题</title>
@@ -10,6 +11,9 @@
     <!--将相对URL转换为绝对URL-->
     <base href="www.base_url.com">
 
+    <link s>
+
+    <!--定义内部CSS资源-->
     <style type="text/css">
 
         table tr td, th {
@@ -21,6 +25,13 @@
         }
 
     </style>
+
+    <script type="text/javascript">
+
+        document.ondragover = function () {
+            return false;
+        }
+    </script>
 
 </head>
 <body>
@@ -38,41 +49,111 @@
 
 <p>段落</p><br/>
 
-<tt>打火机字体</tt><br/>
+
+<!--文本格式化元素-->
+
+<b>粗体</b>
+
+<i>斜体</i>
 
 <em>强调:斜体</em><br/>
 
 <strong>强调:粗体</strong><br/>
 
-<span>设置单独样式</span><br/>
+<small>小号字体文本</small>
 
-<cite>表示引证</cite>
+<sup>上标文本</sup>
 
-<q>引用文本</q>
+<sub>下标文本</sub>
 
-<blockquote>长文本引用</blockquote>
+<bdo>文本显示方向</bdo>
 
-<address>地址信息</address>
+<tt>打火机字体</tt><br/>
 
-<code>代码语言</code>
-
-<pre>代码段</pre>
 <br/>
 
+
+<!--语义相关元素-->
+
+<abbr>缩写</abbr>
+
+<address>地址</address>
+
+<blockquote>长引用文本</blockquote>
+
+<q>短引用文本</q>
+
+<cite>作品标题</cite>
+
+<code>代码</code>
+
+<dfn>专业术语</dfn>
+
+<del>删除文本</del>
+
+<ins>插入文本</ins>
+
+<pre>预格式化文本</pre>
+
+<samp>示范文本</samp>
+
+<kbd>键盘文本</kbd>
+
+<var>变量</var>
+
+<br/>
+
+
+<!--超链接和锚点-->
+
+<a href="Label.html">超链接</a>
+
+<a href="目标网站" title="鼠标滑过显示的文本" target="_blank">链接显示的文本</a><br/>
+
+<a href="mailto:邮箱地址?cc=抄送地址bcc=密件抄送地址subject=邮件主题body=邮件内容" title="鼠标滑过显示的文本" target="_blank">链接显示的文本</a><br/>
+
+
+<!--列表相关元素-->
+
 <ul>
+    <li>无序列表项</li>
+    <li>无序列表项</li>
     <li>无序列表项</li>
 </ul>
 
 <ol>
     <li>有序列表项</li>
+    <li>有序列表项</li>
+    <li>有序列表项</li>
 </ol>
+
+<dl>
+    <dt>列表标题</dt>
+    <dd>列表项目</dd>
+    <dd>列表项目</dd>
+    <dd>列表项目</dd>
+</dl>
 
 <div id="板块名称">逻辑板块</div>
 <br/>
 
+<!--图像相关元素-->
 
-<table summary="表格简介文本"><br/>
+<img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png"
+     alt="下载失败时的替换文本"
+     title="提示文本">
+
+<map name="图片映射" id="map">
+    <area href="Label.html" shape="circle" target="_blank">
+</map>
+
+<br/>
+
+<!--表格相关元素-->
+
+<table summary="表格简介文本" cellpadding="20" cellspacing="10" contenteditable="true">
     <caption>标题文本</caption>
+    <thead>表格头</thead>
     <tbody>
     <tr>
         <th>表头1</th>
@@ -80,19 +161,48 @@
         <th>表头3</th>
     </tr>
     <tr>
-        <td>表格1</td>
+        <td colspan="2" rowspan="2">表格1</td>
         <td>表格2</td>
         <td>表格3</td>
     </tr>
     </tbody>
+    <tfoot>表格尾</tfoot>
 </table>
 
 
-<a href="目标网站" title="鼠标滑过显示的文本" target="_blank">链接显示的文本</a><br/>
+<!--框架相关元素-->
 
-<a href="mailto:邮箱地址?cc=抄送地址bcc=密件抄送地址subject=邮件主题body=邮件内容" title="鼠标滑过显示的文本" target="_blank">链接显示的文本</a><br/>
+<iframe src="Label.html"></iframe>
 
-<img src="图片地址" alt="下载失败时的替换文本" title="提示文本"><br/>
+
+<!--文档结构元素-->
+
+<article>
+    <header>标题</header>
+    <footer>脚注</footer>
+    <section>段落</section>
+    <article>附属文章</article>
+</article>
+
+<section>
+
+    <nav>导航条</nav>
+    <aside>文章附属信息</aside>
+    <figure>图片区域</figure>
+</section>
+
+
+<!--语义相关元素-->
+
+<mark>重点关注内容</mark>
+<time>日期</time>
+
+
+<!--特殊元素-->
+
+<meter max="100" min="1"></meter>
+<progress></progress>
+
 
 <form method="传送方式" action="服务器地址">
     姓名:
