@@ -12,7 +12,7 @@
 
 **文章目录**
 
-## 属性
+## 对象属性
 
 属性类型
 
@@ -26,3 +26,9 @@
 - Object.defineProperty()：定义访问器属性。
 - Object.defineProperties()：定义多个访问器属性。
 - Object.getOwnPropertyDescriptor()：获取给定属性的描述符。
+
+## 对象创建
+
+1. 工厂模式。
+2. 构造函数。
+3. 原型模式。
