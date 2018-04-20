@@ -22,3 +22,7 @@ document.writeln("decodeURI(decode)：" + decodeURI(decode) + "<br/>");
 document.writeln("decodeURIComponent(decode)：" + decodeURIComponent(decode) + "<br/>");
 document.writeln("toExponential：" + toExponential(2) + "<br/>" + "<br/>");
 
+function Student(age, name) {
+    this.age = age;
+    this.name = name;
+}
