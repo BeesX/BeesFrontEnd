@@ -28,11 +28,16 @@
 
     <script type="text/javascript">
 
+        var image = document.getElementById("image");
+
+        image.ondragstart = function (evt) {
+
+        };
+
         document.ondragover = function () {
-            return false;
+            return true;
         }
     </script>
-
 </head>
 <body>
 
@@ -139,7 +144,8 @@
 
 <!--图像相关元素-->
 
-<img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png"
+<img id="image"
+     src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png"
      alt="下载失败时的替换文本"
      title="提示文本">
 
@@ -212,34 +218,78 @@
     <input type="password" name="password">
     <br>
     <br>
+    <button>提交</button>
+
+    <input type="file">
+
     <!--文本域-->
     <textarea rows="行数" cols="烈数">文本</textarea>
 
     <!--按钮-->
-    <br>
+    <br/>
     <input type="submit" name="login" value="提交按钮">
-    <br>
+    <br/>
     <input type="reset" name="login" value="重置按钮">
 
-    <!--单选框-->
-    <br>
+    <br/>
+    单行文本框
+    <br/>
+    <input type="text">
+    <br/>
+    单选框
+    <br/>
     <input type="radio" id="radio1" name="radio" value="1"><label for="radio1">单选框1</label>
-    <br>
+    <br/>
     <input type="radio" name="radio" value="1">单选框1
-
-    <!--复选框-->
-    <br>
+    <br/>
+    复选框
+    <br/>
     <input type="checkbox" name="checkbox" value="1">复选框1
-    <br>
+    <br/>
     <input type="checkbox" name="checkbox" value="1">复选框2
+    <br/>
+    <br/>
+    下拉框
+    <br/>
+    文件上传域
+    <br/>
+    <input type="file">
+    <br/>
+    图片域
+    <br/>
+    <input type="image" onclick="" onfocus="" onblur="">
 
-    <!--下拉框-->
+    <!--label标签-->
+
+    <br/>
+
+    <label for="name"> 姓名:</label>
+    <input id="name" type="text" name="name">
     <br>
+
+    <label>
+        密码:
+        <input type="password" name="password">
+    </label>
+
+    <!--按钮-->
+    <br/>
+    <button type="button">button</button>
+    <br/>
+    <button type="reset">reset</button>
+    <br/>
+    <button type="submit">submit</button>
+
+    <!--下拉菜单-->
+
+    <br/>
     <select>
         <option value="服务器提交的值1">下拉选项1</option>
         <option value="服务器提交的值2">下拉选项2</option>
         <option value="服务器提交的值3">下拉选项3</option>
     </select>
+
+
 </form>
 
 </body>
