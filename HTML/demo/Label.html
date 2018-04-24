@@ -234,7 +234,7 @@
     <br/>
     单行文本框
     <br/>
-    <input type="text">
+    <input type="text" placeholder="请输入密码" autofocus>
     <br/>
     单选框
     <br/>
@@ -275,7 +275,7 @@
     <!--按钮-->
     <br/>
     <button type="button">button</button>
-    <br/>
+    <br/>、
     <button type="reset">reset</button>
     <br/>
     <button type="submit">submit</button>
@@ -287,9 +287,47 @@
         <option value="服务器提交的值1">下拉选项1</option>
         <option value="服务器提交的值2">下拉选项2</option>
         <option value="服务器提交的值3">下拉选项3</option>
+        <optgroup label="列表项组">
+            <option value="列表项1">列表项1</option>
+            <option value="列表项2">列表项2</option>
+            <option value="列表项3">列表项3</option>
+        </optgroup>
     </select>
 
+    <br/>
+    <form>
+        <input type="text" name="输入框" list="books" autocomplete="on"/>
+        <br/>
+        <input type="submit" value="购买"/>
+    </form>
 
+    <datalist id="books">
+        <option value="Java">Java</option>
+        <option value="Android">Android</option>
+        <option value="Web">Web</option>
+    </datalist>
+
+    <br/>
+
+    <input type="color"><br/>
+    <input type="date"><br/>
+    <input type="time"><br/>
+    <input type="datetime"><br/>
+    <input type="datetime-local"><br/>
+    <input type="week"><br/>
+    <input type="month"><br/>
+    <input type="email"><br/>
+    <input type="tel"><br/>
+    <input type="url"><br/>
+    <input type="number"><br/>
+    <input type="range"><br/>
+    <input type="search"><br/>
+    <input type="file" multiple accept="image/png"><br/>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </form>
 
 </body>
