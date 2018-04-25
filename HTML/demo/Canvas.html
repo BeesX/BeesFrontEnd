@@ -14,17 +14,64 @@
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
 
-    context.strokeWidth = 100;
-    context.strokeStyle = "#FFO";
+//    几何图形
+    context.shadowColor = "#222";
+    context.shadowBlur = 5.2;
+//    context.shadowOffsetX = 10;
+//    context.shadowOffsetY = -6;
 
-    context.lineWidth = 10;
-    context.line
+    var lg = canvas.createLinearGradient(0, 0, 160, 80);
+    lg.addColorStop(0.2, "#F00");
+    lg.addColorStop(0.5, "#0F0");
+    lg.addColorStop(0.9, "#00F");
+    context.fillStyle = lg;
 
-    context.fillStyle = "#F00";
     context.fillRect(30, 20, 80, 100);
     context.strokeRect(30, 130, 30, 100);
 
-    canvas.arc(30, 100, 20, 30, 50, true);
+    //    文字
+//    context.fillStyle = "#00F";
+//    context.font = "italic 30px 宋体";
+//    context.baseline = "top";
+//    canvas.fillText("字符串", 300, 160, 40);
+//    context.strokeText("描边字符串", 0, 50);
+
+//    路径
+
+//    for(var i = 0; i < 10; i++){
+//        context.beginPath();
+//        context.arc(i * 20, i * 20, (i + 1) * 8, 0, Math.PI * 2, true);
+//        context.closePath();
+//        context.fillStyle = "argb(255, 0, 255, i * 10)";
+//        context.fill();
+//    }
+
+    context.arcTo(30, 200, 100, 300, 30);
+
+    function createRoundReact(context, x1, y1, width, height, radius) {
+        context.moveTo(x1 + radius, y1);
+        context.lineTo(x1 + width - radius, y1);
+
+        context.closePath();
+    }
+
+    createRoundReact(context, 30, 30, 100, 100, 5);
+
+
+//    图片
+
+    var image = new Image();
+    image.src = "logo.png";
+    context.drawImage(image, 10, 300);
+
+
+    context.translate(30, 200);
+    for(var i = 0; i < 10; i++){
+        context.translate(50, 50);
+        context.scale(0.93, 0.93);
+        context.rotate(-Math.PI / 10);
+        context.fillRect(0, 0, 150, 75);
+    }
 
 </script>
 
