@@ -20,7 +20,8 @@
 //    context.shadowOffsetX = 10;
 //    context.shadowOffsetY = -6;
 
-    var lg = canvas.createLinearGradient(0, 0, 160, 80);
+    var lg = context.createLinearGradient(0, 0, 160, 80);
+//    var lg = context.createRadialGradient(80, 40, 5, 80, 40, 60);
     lg.addColorStop(0.2, "#F00");
     lg.addColorStop(0.5, "#0F0");
     lg.addColorStop(0.9, "#00F");
