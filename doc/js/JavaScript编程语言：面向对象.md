@@ -27,6 +27,12 @@
 - Object.defineProperties()：定义多个访问器属性。
 - Object.getOwnPropertyDescriptor()：获取给定属性的描述符。
 
+判断属性是否存在
+
+- in：判断属性是否在对象或者原型中。
+- hasProperty()：判断属性是否在对象中。
+- hasPrototypeProperty()：判断属性是否在原型中。
+
 ## 对象创建
 
 1. 工厂模式。
