@@ -68,3 +68,15 @@ var obj3 = {
 
 obj3.date = "10";
 document.writeln(obj3.date + "<br/>");
+
+
+function foo() {
+
+}
+
+Object.defineProperty(foo.prototype, "z", {get:});
+
+
+
+
+
