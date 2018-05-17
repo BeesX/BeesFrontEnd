@@ -74,9 +74,25 @@ function foo() {
 
 }
 
-Object.defineProperty(foo.prototype, "z", {get:});
 
+var string ="one line \n two line";
+document.writeln('new ${string}' + "<br/>");
 
+var array = ['a', 'b', 'c'];
+array.length = 6;
 
+for(i in array){
+    document.writeln(i);
+}
 
+for(j of array){
+    document.writeln(j);
+}
 
+var xiaoxing = {
+    age: 'xiaoming',
+    name: 20,
+    say: function(){
+        document.writeln("Hello JavaScript");
+    }
+};
