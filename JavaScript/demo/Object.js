@@ -96,3 +96,4 @@ var xiaoxing = {
         document.writeln("Hello JavaScript");
     }
 };
+

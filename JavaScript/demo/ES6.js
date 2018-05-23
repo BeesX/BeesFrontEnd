@@ -26,3 +26,20 @@ Object.assign(target, {c : 3});
 
 document.writeln("<br/>");
 document.writeln(target.c);
+document.writeln("<br/>");
+
+let set = new Set();
+
+[1, 2, 3, 4, 5, 6].forEach(x => set.add(x));
+
+for(let i of set){
+    document.writeln(i);
+}
+
+
+const weekSet = new WeakSet();
+weekSet.add(1);
+weekSet.add(1);
+weekSet.add(1);
+weekSet.add(1);
+document.writeln(...weekSet);
