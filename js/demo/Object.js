@@ -93,7 +93,7 @@ var xiaoxing = {
     age: 'xiaoming',
     name: 20,
     say: function(){
-        document.writeln("Hello JavaScript");
+        document.writeln("Hello js");
     }
 };
 
