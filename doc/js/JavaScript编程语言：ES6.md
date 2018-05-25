@@ -1,4 +1,4 @@
-# 文章标题
+# JavaScript编程语言：ES6
 
 作者：[郭孝星](https://github.com/guoxiaoxing)
 
@@ -983,11 +983,43 @@ Reflect对象一共有13个静态方法，大部分与Object的同名方法功�
 - Reflect.setPrototypeOf(target, prototype)：用于设置对象的__proto__属性，返回第一个参数对象，对应Object.setPrototypeOf(obj, newProto)。
 
 
-###
+## 十一 Promise
+
+> Promise是一个异步对象，从它可以获取异步操作的信息。
+
+1. 对象的状态不受外界营销，Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有
+异步操作的结果，可以决定当前是处于哪一种状态，其他操作无法改变这个状态。
+2. 一旦状态发生改变，就不会再变，任何时候都可以得到这个结果。
+
+
+Promise构造函数接受一个函数作为参数，函数里的参数是两个函数resolve与reject。
+
+1. Promise的then()方法定义在原型对象Promise.prototype上的，它为Promise实例添加状态改变时的回调哈数，该
+方法第一个参数是resolved状态的回调函数，第二个参数是rejected状态的回调参数。then()方法会返回一个新的Promise实
+例（状态改变后的Promise实例）。
+
+2. Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
 
 ```javascript
+let promise = new Promise(function(resolve, reject) {
+    resolve();
+    reject();
+});
 
-```
+promise.then(function() {
+  
+}).then(function() {
+  
+});
+
+promise.then(function() {
+  
+}).catch(function() {
+  
+});
+
+
+continue: http://es6.ruanyifeng.com/#docs/promise
 
 ###
 
