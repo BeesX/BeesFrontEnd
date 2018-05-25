@@ -606,30 +606,382 @@ let runtimeError = {
 
 ## 七 Symbol
 
-continue： http://es6.ruanyifeng.com/#docs/symbol
+> ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
+
+
+Symbol由Symbol()函数生成
+
+```javascript
+let a = Symbol();
+```
+
+/Symbol可以接受一个字符串作为参数，作为对Symbol实例的描述
+
+```javascript
+let b = Symbol("foo");
+```
+
+如果传入的参数是一个对象，则会调用对象的toString()方法。
+
+```javascript
+let c = Symbol(obj1);
+```
+
+Symbol值不能与其他类型的值进行运算
 
 
 ```javascript
-
+"your symbol is" + b；
 ```
 
-###
+Symbol作为对象属性名时， 不能用点运算符， 在对象内部定义属性时， Symbol值必须放在方括号中。
 
 ```javascript
-
+let a = Symbol();
+let obj = {
+    [a]: function(arg) {
+      
+    }
+};
+obj[a](123);
 ```
 
-###
+Symbol还可以用来生成常量。
 
 ```javascript
+const shpaeType = {
+   triangle: Symbol()  
+};
 
+function getArea(shape, option) {
+    let area = 0;
+    switch (shape){
+        case shpaeType.triangle:
+            break
+    } 
+}
 ```
 
-###
+Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
 
 ```javascript
+const obj = {};
+let a = Symbol('a');
+let b = Symbol('b');
 
+obj[a] = 'a';
+obj[b] = 'b';
+
+const symbols = Object.getOwnPropertySymbols(obj);
 ```
+
+Symbol.for()方法每次都会返回相同的Symbol值。
+
+```javascript
+// true
+Symbol.for('foo') === Symbol.for('foo');
+
+// false
+Symbol('foo') === Symbol('foo');
+```
+
+Symbol可以实现模块单例。
+
+传统单例将对象放在全局对象global中。
+
+```javascript
+function A() {
+    this.foo = 'hello';
+}
+
+if(!global._foo){
+    global._foo = new A();
+}
+
+module.exports = global._foo;
+```
+
+Symbol可以防止key被修改。
+
+```javascript
+const KEY = Symbol.for('foo');
+
+function A() {
+    this.foo = 'hello';
+}
+
+if(!global[key]){
+    global[key] = new A();
+}
+
+module.exports = global[key];
+```
+
+## 八 集合
+
+### 8.1 Set
+
+操作方法
+
+- add(value)：添加某个值，返回 Set 结构本身。
+- delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+- has(value)：返回一个布尔值，表示该值是否为Set的成员。
+- clear()：清除所有成员，没有返回值。
+
+遍历方法
+
+- keys()：返回键名的遍历器
+- values()：返回键值的遍历器
+- entries()：返回键值对的遍历器
+- forEach()：使用回调函数遍历每个成员
+
+
+数组去重
+
+```javascript
+function dedupe1(array) {
+    return Array.from(new Set(array));
+}
+
+function dedupe2(array) {
+    return {...new Set(array)};
+}
+```
+
+### 8.2 WeakSet
+
+- WeakSet的成员只能是对象，而不能是其他值。
+- WeakSet里的对象都是弱引用。
+- WeakSet没有size属性，也不能进行for each操作。
+
+### 8.3 Map
+
+Map类似于对象，是一种键值对的数据结构，但是它的键不仅仅限于字符串。
+
+操作方法
+
+- set(key, value)：set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。
+- get(key)：get方法读取key对应的键值，如果找不到key，返回undefined。
+- has(key)：has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。
+- delete(key)：delete方法删除某个键，返回true。如果删除失败，返回false。 
+- clear()：clear方法清除所有成员，没有返回值。
+
+遍历方法
+
+- keys()：返回键名的遍历器。
+- values()：返回键值的遍历器。
+- entries()：返回所有成员的遍历器。
+- forEach()：遍历 Map 的所有成员。
+
+数据结构互转
+
+Map转为数组
+
+```javascript
+const map = new Map().set(true, 7)
+.set({foo: 3}, ['abc']);
+
+// [ [ true, 7 ], [ { foo: 3 }, [ 'abc' ] ] ]
+let array = [...map];
+```
+
+数组转Map
+
+```javascript
+// Map {
+//   true => 7,
+//   Object {foo: 3} => ['abc']
+// }
+new Map([true, 7], [{foo: 3}, ['abc']]);
+```
+
+Map转对象
+
+```javascript
+function strMapToObj(strMap) {
+  let obj = Object.create(null);
+  for (let [k,v] of strMap) {
+    obj[k] = v;
+  }
+  return obj;
+}
+
+const myMap = new Map()
+  .set('yes', true)
+  .set('no', false);
+strMapToObj(myMap)
+// { yes: true, no: false }
+```
+
+对象转Map
+
+```javascript
+function objToStrMap(obj) {
+  let strMap = new Map();
+  for (let k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
+
+objToStrMap({yes: true, no: false})
+// Map {"yes" => true, "no" => false}
+```
+
+Map转JSON
+
+```javascript
+// Map 的键名都是字符串，这时可以选择转为对象 JSON。
+function strMapToJson(strMap) {
+  return JSON.stringify(strMapToObj(strMap));
+}
+
+let myMap = new Map().set('yes', true).set('no', false);
+strMapToJson(myMap)
+// '{"yes":true,"no":false}'
+
+// Map 的键名有非字符串，这时可以选择转为数组 JSON。
+function mapToArrayJson(map) {
+  return JSON.stringify([...map]);
+}
+
+let myMap = new Map().set(true, 7).set({foo: 3}, ['abc']);
+mapToArrayJson(myMap)
+// '[[true,7],[{"foo":3},["abc"]]]' 
+```
+
+JSON转Map
+
+```javascript
+function jsonToStrMap(jsonStr) {
+  return objToStrMap(JSON.parse(jsonStr));
+}
+
+jsonToStrMap('{"yes": true, "no": false}')
+// Map {'yes' => true, 'no' => false}
+```
+### 8.4 WeakMap
+
+- WeakMap只接受对象作为键名。
+- WeakMap指向的键名都是弱引用。
+
+## 九 Proxy
+
+> Proxy属于元编程的概念，用于修改某些操作的默认行为。
+
+
+```javascript
+var proxy = new Proxy(target, handler);
+```
+
+两个参数：
+
+- target：所要代理的对象。
+- handler：配置的操作对象。
+
+Proxy拦截操作
+
+- get(target, propKey, receiver)：拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+- set(target, propKey, value, receiver)：拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+- has(target, propKey)：拦截propKey in proxy的操作，返回一个布尔值。
+- deleteProperty(target, propKey)：拦截delete proxy[propKey]的操作，返回一个布尔值。
+- ownKeys(target)：拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+- getOwnPropertyDescriptor(target, propKey)：拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+- defineProperty(target, propKey, propDesc)：拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+- preventExtensions(target)：拦截Object.preventExtensions(proxy)，返回一个布尔值。
+- getPrototypeOf(target)：拦截Object.getPrototypeOf(proxy)，返回一个对象。
+- isExtensible(target)：拦截Object.isExtensible(proxy)，返回一个布尔值。
+- setPrototypeOf(target, proto)：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+- apply(target, object, args)：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+- construct(target, args)：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+
+
+```javascript
+let person = {
+    name: '张三'
+};
+
+var proxy1 = new Proxy(person, {
+    get: function (target, p, receiver) {
+        if(p in target){
+            return target[p];
+        }else {
+            document.writeln("property is not in target");
+        }
+    }
+});
+
+// 张三
+document.writeln(proxy1.name + "<br/>");
+// property is not in target
+document.writeln(proxy1.age + "<br/>");
+```
+
+
+```javascript
+let proxy2 = new Proxy(person, {
+    set: function (target, p, value, receiver) {
+        if(value === 'lisi'){
+            target[p] = '李四';
+        }
+    }
+});
+
+proxy2.name = 'lisi';
+// 李四
+document.writeln(proxy2.name + "<br/>");
+```
+
+## 十 Reflect
+
+1. Reflect对象可以拿到语言内部的方法。
+2. 修改某些Object方法的返回结果，让其变得更合理。
+
+
+```javascript
+// 老写法
+try{
+    Object.defineProperty(target, property, attributes);
+}catch (e) {
+  
+}
+
+// 新写法
+if(Reflect.defineProperty(target, property, attributes)){
+    
+}else {
+    
+}
+```
+
+3. 让Object的命令式操作都变成函数式操作。
+
+```javascript
+// 命令式
+'assign' in Object;
+
+// 函数式
+Reflect.has(Object, 'assign');
+```
+
+4. Reflect对象的方法与Proxy对象的方法一一对应，不管Proxy怎么修改默认行为，你总是可以在Reflect上获取默认行为。
+
+Reflect对象一共有13个静态方法，大部分与Object的同名方法功能是一样的，而且与Proxy对象的方法是一一对应的。
+
+- Reflect.apply(target, thisArg, args)：同于Function.prototype.apply.call(func, thisArg, args)，用于绑定this对象后执行给定函数。
+- Reflect.construct(target, args)：等同于new target(...args)，这提供了一种不使用new，来调用构造函数的方法。
+- Reflect.get(target, name, receiver)：查找并返回target对象的name属性，如果没有该属性，则返回undefined。
+- Reflect.set(target, name, value, receiver)：Reflect.set方法设置target对象的name属性等于value。
+- Reflect.defineProperty(target, name, desc)：等同于Object.defineProperty，用来为对象定义属性。未来，后者会被逐渐废除，请从现在开始就使用Reflect.defineProperty代替它。
+- Reflect.deleteProperty(target, name)：等同于delete obj[name]，用于删除对象的属性。
+- Reflect.has(target, name)：Reflect.has方法对应name in obj里面的in运算符。
+- Reflect.ownKeys(target)：用于返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。
+- Reflect.isExtensible(target)：对应Object.isExtensible，返回一个布尔值，表示当前对象是否可扩展。
+- Reflect.preventExtensions(target)：应Object.preventExtensions方法，用于让一个对象变为不可扩展。它返回一个布尔值，表示是否操作成功。
+- Reflect.getOwnPropertyDescriptor(target, name)：同于Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象，将来会替代掉后者。
+- Reflect.getPrototypeOf(target)：于读取对象的__proto__属性，对应Object.getPrototypeOf(obj)。
+- Reflect.setPrototypeOf(target, prototype)：用于设置对象的__proto__属性，返回第一个参数对象，对应Object.setPrototypeOf(obj, newProto)。
+
 
 ###
 

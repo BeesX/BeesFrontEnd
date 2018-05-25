@@ -30,16 +30,63 @@ document.writeln("<br/>");
 
 let set = new Set();
 
-[1, 2, 3, 4, 5, 6].forEach(x => set.add(x));
+[1, 2, 3, 4, 5, 6, 7, 6, NaN, NaN, {}, {}].forEach(x => set.add(x));
 
 for(let i of set){
     document.writeln(i);
 }
 
+document.writeln("<br/>");
 
-const weekSet = new WeakSet();
-weekSet.add(1);
-weekSet.add(1);
-weekSet.add(1);
-weekSet.add(1);
-document.writeln(...weekSet);
+let proxy = new Proxy({}, {
+    get: function (target, property) {
+        return 35;
+    }
+});
+
+let obj = Object.create(proxy);
+document.writeln(obj.time + "<br/>");
+
+let person = {
+    name: '张三'
+};
+
+let proxy1 = new Proxy(person, {
+    get: function (target, p, receiver) {
+        if(p in target){
+            return target[p];
+        }else {
+            document.writeln("property is not in target");
+        }
+    }
+});
+
+document.writeln(proxy1.name + "<br/>");
+document.writeln(proxy1.age + "<br/>");
+
+
+let proxy2 = new Proxy(person, {
+    set: function (target, p, value, receiver) {
+        if(value === 'lisi'){
+            target[p] = '李四';
+        }
+    }
+});
+
+proxy2.name = 'lisi';
+document.writeln(proxy2.name + "<br/>");
+
+let target1 = function () {
+    return 'I am target';
+};
+
+let proxy3 = new Proxy(target1, {
+    apply: function () {
+        return 'I am proxy';
+    }
+});
+
+document.writeln(proxy3() + '<br/>');
+
+
+
