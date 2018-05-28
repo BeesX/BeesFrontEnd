@@ -1027,31 +1027,162 @@ continue: http://es6.ruanyifeng.com/#docs/promise
 
 ```
 
-###
-
-###
-
-###
-
-###
-
-###
-
-###
+## 十二 Iterator
 
 ```javascript
 
 ```
 
-###
+## 十三 Generator
 
-###
+```javascript
 
-###
+```
 
-###
+## 十四 async
 
-###
+```javascript
 
-###
+```
+
+## 十五 Class
+
+```javascript
+
+```
+
+## 十六 Decorator
+
+```javascript
+
+```
+
+## 十七 Module
+
+> ES6的模块是编译时加载，模块功能主要有两个命令组成，export命令用于规定模块对外的接口，import命令用于输入其他模块提供的功能。这两个
+命令都只能置于模块顶层。
+
+### 17.1 
+
+export可以对外输出变量、方法和类。
+
+```javascript
+// 可以直接加在变量前面
+export var name = 'Lili';
+export var age = 20;
+
+// 也可以直接在脚本末尾导出
+export {name, age};
+```
+
+export除了输出变量本来的名字，还可以使用as关键字重命名。
+
+```javascript
+function v1() {
+  
+}
+
+export {
+    v1 as newName
+}
+```
+
+### 17.2 
+
+import导入与export的名字一一对应
+
+```javascript
+import {name, age} from './profile.js';
+```
+
+import同样可也可以为导入的变量重命名。
+
+```javascript
+import {v1 as newName} from './profile.js';
+```
+
+### 17.3 
+
+> export default 用于指定模块的默认输出。
+
+```javascript
+// 第一组
+export default function crc32() { // 输出
+  // ...
+}
+
+// 不需要大括号
+import crc32 from 'crc32'; // 输入
+
+// 第二组
+export function crc32() { // 输出
+  // ...
+};
+
+// 需要大括号
+import {crc32} from 'crc32'; // 输入
+```
+
+export default还可以用来输出类。
+
+```javascript
+export default class {
+  
+}
+
+import MyClass from 'MyClass';
+```
+
+### 17.4 import()
+
+import还可以作为一个函数使用，它加载的模块是一个对象。它通常会用在以下场合：
+
+1. 按需加载。
+
+```javascript
+button.addEventListener('click', event => {
+  import('./dialogBox.js')
+  .then(dialogBox => {
+    dialogBox.open();
+  })
+  .catch(error => {
+    /* Error handling */
+  })
+});
+```
+
+2. 条件加载
+
+```javascript
+if (condition) {
+  import('moduleA').then(...);
+} else {
+  import('moduleB').then(...);
+}
+```
+
+3. 动态模块路径
+
+```javascript
+import(f())
+.then(...);
+```
+
+```javascript
+
+```
+
+
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
 
