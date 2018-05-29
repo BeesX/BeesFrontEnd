@@ -1047,14 +1047,247 @@ continue: http://es6.ruanyifeng.com/#docs/promise
 
 ## 十五 Class
 
-```javascript
+> 类的数据类型就是一个函数，在类里面定义的方法就是直接定义在类的prototype属性上。在类的实例上调用方法，就是在类的原型上调用
+方法。
 
+定义一个类
+
+- class内部不存在变量提升。
+- class是构造函数的一层包装，因此class也继承了函数的许多特性。
+
+```javascript
+class Point{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    toString(){
+        return this.x + this.y;
+    }
+}
+
+// Point.prototype.constructor属性直接指向类本身
+Point.prototype.constructor == Point
+
+// 类的所有实例对象都共享一个原型对象
+var p1 = new Point(2,3);
+var p2 = new Point(3,2);
+
+p1.__proto__ === p2.__proto__
 ```
+
+### 15.1 constructor
+
+constructor是类的默认方法，指向类本身，如果没有显式定义，一个空的constructor方法会被默认添加。
+
+```javascript
+class Point {
+}
+
+// 等同于
+class Point {
+  constructor() {}
+}
+```
+
+### 15.2 class表达式
+
+类也可以使用变量表达式定义。
+
+```javascript
+const MyClass = class Me{
+    getClassName(){
+        return Me.name;
+    }
+}
+
+// class表达式定义的类可以立即执行
+let person = new class{
+    constructor(name){
+        this.name = name;
+    }
+    
+    getName(){
+        return this.name;
+    }
+}
+```
+
+### 15.3 私有属性与私有方法
+
+类里不存在私有方法与私有属性，可以将私有方法与私有属性移出模块，或者利用Symbol来命名属性名和属性名。
+
+```javascript
+const methodName = new Symbol('methodName');
+const propertyName = new Symbol('propertyName');
+
+export default class MyClass{
+    
+    // 公有方法
+    foo(name){
+        this[methodName](name);
+    }
+    
+    // 私有方法，外部取不到这个名字
+    [methodName](name){
+        return this[propertyName] = name;
+    }
+}
+```
+
+### 15.4 this指向
+
+类的方法内部的this默认会指向类的实例。
+
+```javascript
+class Logger{
+    // 这个方法如果单独提出来使用，this就会指向该方法运行时所在
+    // 的环境，会因为找不到print方法而报错。
+    printName(name = 'there'){
+        this.print(`Hello ${name}`);
+    }
+}
+```
+
+方法一：在构造方法中绑定this。
+
+```javascript
+class Logger{
+    constructor(){
+        this.printName = this.printName.bind(this);
+    }
+    
+    // 这个方法如果单独提出来使用，this就会指向该方法运行时所在
+    // 的环境，会因为找不到print方法而报错。解决的方法是在构造
+    // 方法中绑定this。
+    printName(name = 'there'){
+        this.print(`Hello ${name}`);
+    }
+}
+```
+
+方法二：使用箭头函数。
+
+```javascript
+class Logger{
+    constructor(){
+        this.printName = (name = 'there') => {
+            this.print(`Hello ${name}`);
+        }
+    }
+}
+```
+
+方案三：使用代理，获取方法的时候自动绑定this。
+
+```javascript
+function selfish (target) {
+  const cache = new WeakMap();
+  const handler = {
+    get (target, key) {
+      const value = Reflect.get(target, key);
+      if (typeof value !== 'function') {
+        return value;
+      }
+      if (!cache.has(value)) {
+        cache.set(value, value.bind(target));
+      }
+      return cache.get(value);
+    }
+  };
+  const proxy = new Proxy(target, handler);
+  return proxy;
+}
+
+const logger = selfish(new Logger());
+```
+
+### 15.5 extends
+
+super关键字当函数使用时，代表父类的构造函数，ES6规定子类的构造函数必须执行一次super函数。当对象使用时，在
+普通方法中，指向父类的原型对象，在静态方法中，指向父类。
+
+
+
+
 
 ## 十六 Decorator
 
-```javascript
+> 修饰期函数可以在编译期修改类的行为，这个相当于Java里的注解。修饰器只能用于类和类的方法，不能用于函数，因为存在函数提升。
 
+
+[core-decorators.js](https://github.com/jayphelps/core-decorators.js)是一个第三方模块，实现了几个常见的修饰器。
+
+- @autobind修饰器使得方法中的this对象，绑定原始对象。
+- @readonly修饰器使得属性或方法不可写。
+- @override修饰器检查子类的方法，是否正确覆盖了父类的同名方法，如果不正确会报错。
+- @deprecated修饰器在控制台显示一条警告，表示该方法将废除。
+- @suppressWarnings修饰器抑制deprecated修饰器导致的console.warn()调用。但是，异步代码发出的调用除外。
+
+Mixin模式是对象继承的一种替代方案，在一个对象中混入另外一个对象的方法。
+
+```javascript
+const foo = function() {
+  
+}
+
+class MyClass{
+    
+}
+
+Object.assign(MyClass.prototype, foo);
+
+let obj = new MyClass();
+obj.foo();
+```
+
+我们可以把这个操作写成一个脚本：
+
+```javascript
+export function mixins(...list) {
+  return function (target) {
+    Object.assign(target.prototype, ...list);
+  };
+} 
+```
+
+使用该修饰器
+
+```javascript
+import { mixins } from './mixins';
+
+const Foo = {
+  foo() { console.log('foo') }
+};
+
+@mixins(Foo)
+class MyClass {}
+
+let obj = new MyClass();
+obj.foo() // "foo"
+```
+
+另外，Trait 也是一种修饰器，效果与 Mixin 类似，但是提供更多功能，比如防止同名方法的冲突、排除混入某些方法、为混入的方法起别名等等。
+
+
+```javascript
+import { traits } from 'traits-decorator';
+
+class TFoo {
+  foo() { console.log('foo') }
+}
+
+const TBar = {
+  bar() { console.log('bar') }
+};
+
+@traits(TFoo, TBar)
+class MyClass { }
+
+let obj = new MyClass();
+obj.foo() // foo
+obj.bar() // bar
 ```
 
 ## 十七 Module
