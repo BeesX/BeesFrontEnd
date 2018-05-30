@@ -1035,11 +1035,232 @@ continue: http://es6.ruanyifeng.com/#docs/promise
 
 ## 十三 Generator
 
-```javascript
+> Generator函数式ES6提供的一种异步解决方案，该函数是一个状态机，封装了多个内部状态。它除了是个状态机还是个遍历器对象生成函数，返回的遍历器对象可以
+依次遍历Generator函数内部的每一个状态。
 
+一个标准的Generator函数
+
+```javascript
+// function关键字和函数名之间有个*
+function* hellowWorldGenerator() {
+    // yield关键字定义函数内部的各种状态
+    yield 'hello';
+    yield 'world';
+    return 'ending';
+}
+```
+### 13.1 yield
+
+yield表达式与return语句既有相似之处，也有区别。相似之处在于，都能返回紧跟在语句后面的那个表达式的值。区别在于每次遇到yield，函数暂停执行，下一次再从该位置继续向后执
+行，而return语句不具备位置记忆的功能。一个函数里面，只能执行一次（或者说一个）return语句，但是可以执行多次（或者说多个）yield表达式。正常函数只能返回一个值，因为只能
+执行一次return；Generator 函数可以返回一系列的值，因为可以有任意多个yield。从另一个角度看，也可以说 Generator 生成了一系列的值
+
+
+如果没有yield表达式，Generator函数变成一个惰性求值或者暂缓执行的函数。
+
+```javascript
+function* lazyMethod() {
+  return 'value';
+}
 ```
 
+yield表达式如果用在一个表达式中，必须放在圆括号里面。
+
+```javascript
+function* demo() {
+  console.log('hello' + {yeild});
+}
+```
+
+yield表达式如果用作函数参数或者在赋值表达式的右边，可以不加括号。
+
+
+```javascript
+function demo() {
+  foo(yield 'a', yield 'b');
+  let input = yield 
+}
+```
+yield*表达式可以在Generator函数内部调用另一个Generator函数，直接在Generator函数内部调用Generator函数是没有效果的。
+
+### 13.2 next())
+
+Generator函数的调用后，函数并不执行，返回的也不是函数的执行结果，而是一个指向内部状态的遍历器对象，不断调用该对象的next()方法，使得指针指向下一个状态，即从函数头部或者
+上一个停下来的状态继续执行，也就是说yield表达式是暂停执行的标记，而next()方法恢复执行。
+
+```javascript
+let hw = hellowWorldGenerator();
+// hello
+hw.next();
+// world
+hw.next();
+// ending
+hw.next();
+// ending
+hw.next();
+```
+next()还可以带一个参数，这个参数会被当做上一个yied表达式的返回值。
+
+```javascript
+function* dataConsumer() {
+  console.log('Started');
+  console.log(`1. ${yield}`);
+  console.log(`2. ${yield}`);
+  return 'result';
+}
+
+let genObj = dataConsumer();
+genObj.next();
+// Started
+genObj.next('a')
+// 1. a
+genObj.next('b')
+// 2. b
+```
+
+### 13.3 throw()
+
+Generator函数返回的遍历器的对象有一个throw()方法，可以在Generator函数体外抛出错误，然后在Generator函数体内捕获。
+
+```javascript
+let g = function* () {
+    try{
+        yield ;
+    }catch (e) {
+      console.log('内部捕获错误', e);
+    }
+};
+
+g.next();
+
+try {
+  g.throw(new Error('a'));
+  g.throw(new Error('b'));
+}catch (e) {
+  console.log('外部捕获错误', e);
+}
+
+// a错误被函数体内部捕获
+// b错误因g函数已经执行完成，被外部捕获。
+```
+
+### 15.4 return()
+
+Generator函数返回的遍历器对象，有个return()方法，该返回可以返回指定的值，并终止遍历Generator函数。
+
+```javascript
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+var g = gen();
+
+g.next()        // { value: 1, done: false }
+g.return('foo') // { value: "foo", done: true }
+g.next()        // { value: undefined, done: true }
+```
+
+如果Generator函数内部有try...finally代码块，那么return方法会推迟到finally代码块执行完后再执行。
+
+总结一下上面的三个函数：
+
+- next()是将yield表达式替换成一个值。
+- throw()是将yield表达式替换成一个throw语句。
+- throw()是将yield表达式替换成一个throw语句。
+
+### 15.5 应用场景
+
+1 异步操作的同步化表达
+
+```javascript
+function* loadUI() {
+  showLoading();
+  yield loadData();
+  hideLoading();
+}
+
+// 返回遍历器对象
+var loader = loadUI();
+
+// 加载UI
+loader.next();
+
+// 卸载UI
+loader.next();
+```
+
+2 控制流管理
+
+常规的异步操作
+
+```javascript
+step1(function (value1) {
+  step2(value1, function(value2) {
+    step3(value2, function(value3) {
+      step4(value3, function(value4) {
+        // Do something with value4
+      });
+    });
+  });
+});
+```
+
+Promise写法
+
+```javascript
+Promise.resolve(step1)
+.then(step2)
+.then(step3)
+.then(step4)
+.then(function(value4) {
+  
+}, function(error) {
+  
+})
+.done();
+```
+
+Generator写法
+
+```javascript
+function* longRunningTask(value1) {
+  try {
+    var value2 = yield step1(value1);
+    var value3 = yield step2(value2);
+    var value4 = yield step3(value3);
+    var value5 = yield step4(value4);
+    // Do something with value4
+  } catch (e) {
+    // Handle any error from step1 through step4
+  }
+}
+```
+
+3 利用Generator函数可以在任意对象上部署Iterator接口
+
+```javascript
+function* iterEntries(obj) {
+  let keys = Object.keys(obj);
+  for(let i = 0; i < keys.length; i++){
+      let key = keys[i];
+      yield [key, obj[key]];
+  }
+}
+
+let myOBj = {foo: 3, bar:7};
+
+for(let[key, value] of iterEntries(myOBj)){
+    console.log(key, value);
+}
+```
+
+4 Generator可以看做是数据结构，返回一系列的值，提供类似数组的接口。
+
 ## 十四 async
+
+
 
 ```javascript
 
