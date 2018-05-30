@@ -1029,9 +1029,66 @@ continue: http://es6.ruanyifeng.com/#docs/promise
 
 ## 十二 Iterator
 
+Iterator的作用有三个：
+
+1. 为各种数据结构提供一个统一的、简便的访问接口。
+2. 使得数据结构的成员能够按照某种次序排列。
+3. Iterator接口供for...of循环消费。
+
+Iterator的工作原理如下所示：
+
+1. 创建一个指针对象，指向当前数据结构的起始位置。也就是说，遍历器对象本质上，就是一个指针对象。
+2. 第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员。
+3. 第二次调用指针对象的next方法，指针就指向数据结构的第二个成员。
+4. 不断调用指针对象的next方法，直到它指向数据结构的结束位置。
+
+原生就具备Iterator接口的数据结构如下所示：
+
+- Array
+- Map
+- Set
+- String
+- TypedArray
+- 函数的 arguments 对象
+- NodeList 对象
+
+默认的Iterator接口部署在Symbol.iterator属性上，如下所示：
+
+```javascript
+let arr = ['a', 'b', 'c'];
+let iterator = arr[Symbol.iterator]();
+
+iterator.next();
+iterator.next();
+iterator.next();
+```
+
+对象默认不带Iterator接口，可以手动为对象添加Iterator接口。
+
 ```javascript
 
+let obj = {
+  data: [ 'hello', 'world' ],
+  [Symbol.iterator]() {
+    const self = this;
+    let index = 0;
+    return {
+      next() {
+        if (index < self.data.length) {
+          return {
+            value: self.data[index++],
+            done: false
+          };
+        } else {
+          return { value: undefined, done: true };
+        }
+      }
+    };
+  }
+};
 ```
+
+
 
 ## 十三 Generator
 
