@@ -992,13 +992,61 @@ Reflect对象一共有13个静态方法，大部分与Object的同名方法功�
 2. 一旦状态发生改变，就不会再变，任何时候都可以得到这个结果。
 
 
+```javascript
+let promise = new Promise(function(resolve, reject) {
+    resolve();
+    reject();
+});
+````
+
 Promise构造函数接受一个函数作为参数，函数里的参数是两个函数resolve与reject。
 
-1. Promise的then()方法定义在原型对象Promise.prototype上的，它为Promise实例添加状态改变时的回调哈数，该
-方法第一个参数是resolved状态的回调函数，第二个参数是rejected状态的回调参数。then()方法会返回一个新的Promise实
-例（状态改变后的Promise实例）。
+- resolve函数的作用是将Promise对象的状态从未完成变成成功。
+- reject函数的作用是讲Promise对象从未完成变成失败。
 
-2. Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
+### 11.1 then()
+
+Promise实例生成以后，可以用then()方法分别制定resolve状态和reject的状态的回调函数。then()方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象
+的状态变为resolved时调用，第二个回调函数是Promise对象的状态变为rejected时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出
+的值作为参数。
+
+```javascript
+let promise = new Promise(function(resolve, reject) {
+    resolve();
+    reject();
+});
+
+promise.then(function () {
+  
+}, function () {
+  
+});
+```
+
+### 11.2 catch()
+
+Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。一般不要在then()方法的第二个参数定义reject()函数，而总是使用
+catch()方法。
+
+```javascript
+let promise = new Promise(function(resolve, reject) {
+    resolve();
+    reject();
+});
+
+promise.then(function () {
+  
+}).catch(function () {
+  
+});
+```
+
+跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。
+
+
+### 11.1 finally()
+
+finally()方法是最终一定会执行的，不接受任何参数，也不依赖前面返回的任何状态。
 
 ```javascript
 let promise = new Promise(function(resolve, reject) {
@@ -1010,21 +1058,27 @@ promise.then(function() {
   
 }).then(function() {
   
-});
-
-promise.then(function() {
-  
-}).catch(function() {
+}).finally(function() {
   
 });
 
+````
+### 15.4 reace()
 
-continue: http://es6.ruanyifeng.com/#docs/promise
-
-###
+race()方法将多个Promise对象合并成一个Promise对象。
 
 ```javascript
+// 只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个
+// 率先改变的 Promise 实例的返回值，就传递给p的回调函数。
+const p = Promise.race([p1, p2, p3]);
+```
 
+### 15.5 resolve()
+
+将现有的对象转为Promise对象。
+
+```javascript
+const jsPromise = Promise.resolve($.ajax('/whatever.json'));
 ```
 
 ## 十二 Iterator
@@ -1087,8 +1141,6 @@ let obj = {
   }
 };
 ```
-
-
 
 ## 十三 Generator
 
@@ -1755,18 +1807,3 @@ import(f())
 ```javascript
 
 ```
-
-
-
-##
-
-##
-
-##
-
-##
-
-##
-
-##
-
