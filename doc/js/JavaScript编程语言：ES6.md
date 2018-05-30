@@ -1260,10 +1260,83 @@ for(let[key, value] of iterEntries(myOBj)){
 
 ## 十四 async
 
+async是Generator的语法题，相对于Generator函数，它有以下优点：
 
+1. 相对于Generator函数，async内置执行器，无需借助co模块。
+2. async与await相比星号和yield，语义更加清楚了。
+3. 更广泛的适用性，co模块约定，yield命令后面只能是 Thunk 函数或 Promise 对象，而async函数的await命令后面，可以是 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。
+4. async函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用then方法指定下一步的操作。
+
+
+
+Generator函数
 
 ```javascript
+const asyncReadFile = function* () {
+  const f1 = yield readFile('/etc/fstab');
+  const f2 = yield readFile('/etc/shels');
+  
+  console.log(f1.toString());
+  console.log(f2.toString());
+}
+````
 
+
+async函数
+
+```javascript
+const asyncReadFile = async function () {
+  const f1 = await readFile('/etc/fstab');
+  const f2 = await readFile('/etc/shels');
+  
+  console.log(f1.toString());
+  console.log(f2.toString());
+}
+
+```
+
+async有多种表达形式。
+
+```javascript
+// 函数声明
+async function foo() {}
+
+// 函数表达式
+const foo = async function () {};
+
+// 对象的方法
+let obj = { async foo() {} };
+obj.foo().then(...)
+
+// Class 的方法
+class Storage {
+  constructor() {
+    this.cachePromise = caches.open('avatars');
+  }
+
+  async getAvatar(name) {
+    const cache = await this.cachePromise;
+    return cache.match(`/avatars/${name}.jpg`);
+  }
+}
+
+const storage = new Storage();
+storage.getAvatar('jake').then(…);
+
+// 箭头函数
+const foo = async () => {};
+```
+
+async函数返回一个Promise对象，内部的return语句返回的值会成为then()方法回调函数的参数。async内部抛出的错误会把Promise对象变成reject状态，抛出的
+错误会被catch()方法回调函数接收到。但是如果这个错误被捕获了，则会继续执行下一个await。
+
+```javascript
+async function f() {
+  return 'hello world';
+}
+
+// hello world
+f().then(v = > console.log(v));
 ```
 
 ## 十五 Class
