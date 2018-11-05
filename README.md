@@ -40,4 +40,6 @@ IDE推荐[VSCode](https://code.visualstudio.com/)，轻量级、插件丰富，�
 
 - [前端资源库](https://github.com/dypsilon/frontend-dev-bookmarks)
 - [前端技能树](https://github.com/JacksonTian/fks)
+- [前端开发技能树魔兽天游戏版](http://skill.phodal.com/)
 - [JavaScript算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
+- [怎样成长为一个优秀的 Web 前端开发工程师？](https://www.zhihu.com/question/19554845/answer/23605169?utm_source=weibo&utm_medium=weibo_share&utm_content=share_answer&utm_campaign=share_button)
