@@ -152,7 +152,7 @@ IDE推荐[VSCode](https://code.visualstudio.com/)，轻量级、插件丰富，�
 
 - [官方文档](https://developers.weixin.qq.com/miniprogram/dev/index.html)
 - [微信小程序公开课](https://daxue.qq.com/wechat/wechat_list/cat_id/204)
-- [微信小程序开发资源汇总](https://github.com/justjavac/awesome-wechat-weapp
+- [微信小程序开发资源汇总](https://github.com/justjavac/awesome-wechat-weapp)
 
 ### 支付宝小程序
 
