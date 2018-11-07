@@ -6,10 +6,9 @@
 [![Forks](https://img.shields.io/github/issues/BeesFrontEnd/BeesFrontEnd.svg)](https://jitpack.io/#BeesFrontEnd/BeesFrontEnd)
 
 
-随着ReactNative、Weex与Flutter等跨端框架的发展，大前端的概念也逐渐普及开来，纯粹的Native开发相对变得比较少，前端也成为了客户端同学必须要掌握的一门技术，但是客户端同学做的是跨端开发，在学习路线上和前端同学又稍有不同，下面就是一套针对客户端同学量身定做的学习方案和学习资料。
+随着ReactNative、Weex与Flutter等跨端框架的发展，大前端的概念也逐渐普及开来，纯粹的Native开发相对变得比较少，前端也成为了客户端同学必须要掌握的一门技术，但是客户端同学做的是跨端开发，在学习路线上和前端同学又稍有不同，下面从客户端同学的视角去讨论如何学习前端知识。
 
 这里为大家整理了一份跨端技术图谱，这份图谱并没有去穷尽所有的前端技术，只是从客户端开发的视角去梳理常用的技术点，帮助大家理清脉络。
-
 
 ![](https://user-gold-cdn.xitu.io/2018/11/7/166eddbfe1c1df55?w=914&h=1547&f=png&s=162453)
 
