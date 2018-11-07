@@ -10,7 +10,10 @@
 
 这里为大家整理了一份跨端技术图谱，这份图谱并没有去穷尽所有的前端技术，只是从客户端开发的视角去梳理常用的技术点，帮助大家理清脉络。
 
+更多关于跨端技术的讨论可以参见[BeesFrontEnd](https://github.com/guoxiaoxing/BeesFrontEnd)项目。
+
 ![](https://user-gold-cdn.xitu.io/2018/11/7/166eddbfe1c1df55?w=914&h=1547&f=png&s=162453)
+
 
 ## 开发工具
 
