@@ -158,7 +158,7 @@ IDE推荐[VSCode](https://code.visualstudio.com/)，轻量级、插件丰富，�
 
 > 支付宝小程序是一种全新的开放模式，它运行在支付宝客户端，可以被便捷地获取和传播，为终端用户提供更优的用户体验.
 
-- [官方文档](https://docs.alipay.com/mini/developer/getting-started
+- [官方文档](https://docs.alipay.com/mini/developer/getting-started)
 - [支付宝小程序社区](https://openclub.alipay.com/index.php?c=thread&a=subforum&fid=66)
 
 ### 快应用
