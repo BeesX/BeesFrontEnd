@@ -5,6 +5,39 @@
 [![Stars](https://img.shields.io/github/forks/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
 [![Forks](https://img.shields.io/github/issues/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
 
+BeesHybrid项目致力于跨端技术的研究与实践，我们将自上而下的去分析相关的技术原理与最佳实践，前端的技术自上而下大致可以分为以下18层，如下所示：
+
+- 浏览器、Android与iOS
+- 渲染引擎、JavaScript引擎
+- HTML/JavaScript/CSS三支柱
+- 编辑器
+- 编译任务
+- 编译工具
+- 打包、调试、质量
+- 测试
+- JS基础类库
+- JS类库
+- UI框架
+- CSS预处理器
+- 模板
+- 现代化
+- 安全/模式
+- 中间语言
+- 跨平台解决方案
+
+而现在的跨端融合，通常指的是PC、Android与iOS三端的融合，希望可以达到一次编写，三端运行的效果。为了达到这个目的，我们需要进行大量的前置工作，对上我们需要设计良好的DSL与CLI来支撑业务开发，对下我们需要寻找良好的跨端方案，解决多端兼容性和适配问题。
+
+对上述18层技术栈做个抽象，可以大致分为
+
+- 前端业务框架：提供业务开发相关DSL，例如Vue、React等。
+- 前端工程框架：提供编译、打包、模板、预处理等工具，例如Webpack、Sass等。
+- 跨平台解决方案：提供跨端解决方案，例如ReactNative、Weex与小程序等。
+
+后续的文章会围绕着三大主题的原理分析与最佳实践来展开。第一次阅读本系列文章的同学，建议先阅读：
+
+- 跨端技术入门指南
+
+
 随着ReactNative、Weex与Flutter等跨端框架的发展，大前端的概念也逐渐普及开来，纯粹的Native开发相对变得比较少，前端也成为了客户端同学必须要掌握的一门技术，但是客户端同学做的是跨端开发，在学习路线上和前端同学又稍有不同，下面从客户端同学的视角去讨论如何学习前端知识。
 
 这里为大家整理了一份跨端技术图谱，这份图谱并没有去穷尽所有的前端技术，只是从客户端开发的视角去梳理常用的技术点，帮助大家理清脉络。
@@ -12,6 +45,8 @@
 更多关于跨端技术的讨论可以参见[BeesHybrid](https://github.com/BeesX/BeesHybrid)项目。
 
 ![](https://user-gold-cdn.xitu.io/2018/11/7/166eddbfe1c1df55?w=914&h=1547&f=png&s=162453)
+
+
 
 
 ## 开发工具
