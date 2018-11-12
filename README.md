@@ -1,16 +1,15 @@
-# <img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png" alt="BeesFrontEnd" width="80" height="80" align="bottom"/> BeesFrontEnd
+# <img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png" alt="BeesFrontEnd" width="80" height="80" align="bottom"/> BeesHybrid
 
-[![License](https://img.shields.io/github/issues/BeesFrontEnd/BeesFrontEnd.svg)](https://jitpack.io/#BeesFrontEnd/BeesFrontEnd)
-[![Stars](https://img.shields.io/github/stars/BeesFrontEnd/BeesFrontEnd.svg)](https://jitpack.io/#BeesFrontEnd/BeesFrontEnd)
-[![Stars](https://img.shields.io/github/forks/BeesFrontEnd/BeesFrontEnd.svg)](https://jitpack.io/#BeesFrontEnd/BeesFrontEnd)
-[![Forks](https://img.shields.io/github/issues/BeesFrontEnd/BeesFrontEnd.svg)](https://jitpack.io/#BeesFrontEnd/BeesFrontEnd)
-
+[![License](https://img.shields.io/github/issues/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
+[![Stars](https://img.shields.io/github/stars/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
+[![Stars](https://img.shields.io/github/forks/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
+[![Forks](https://img.shields.io/github/issues/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
 
 随着ReactNative、Weex与Flutter等跨端框架的发展，大前端的概念也逐渐普及开来，纯粹的Native开发相对变得比较少，前端也成为了客户端同学必须要掌握的一门技术，但是客户端同学做的是跨端开发，在学习路线上和前端同学又稍有不同，下面从客户端同学的视角去讨论如何学习前端知识。
 
 这里为大家整理了一份跨端技术图谱，这份图谱并没有去穷尽所有的前端技术，只是从客户端开发的视角去梳理常用的技术点，帮助大家理清脉络。
 
-更多关于跨端技术的讨论可以参见[BeesFrontEnd](https://github.com/guoxiaoxing/BeesFrontEnd)项目。
+更多关于跨端技术的讨论可以参见[BeesHybrid](https://github.com/BeesX/BeesHybrid)项目。
 
 ![](https://user-gold-cdn.xitu.io/2018/11/7/166eddbfe1c1df55?w=914&h=1547&f=png&s=162453)
 
