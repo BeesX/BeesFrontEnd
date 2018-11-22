@@ -16,24 +16,66 @@
 
  两种在网页引入JavaScript的方式：
  
+ 引入源码
+ 
+ ```html
+  <script>
+   function foo() {
+
+   }
+ </script>
  ```
- ```
+
+引入源码文件
+
+```html
+ <script src="js/main.js"></script>
+```
 
 ## 一 语法
 
 1. 区别大小写。
 2. 变量是松散类型的，可以保存任何类型的数据。
 
-## 二 数据类型
+## 二 关键字和保留字
+
+## 三 变量
+
+ECMAScript的变量是松散类型，使用var定义。
+
+## 四 数据类型
+
+### 4.1 Undefined
+
+Undefined：只有一个值，即：undefined，在使用var声明了一个变量，但是未对其加以初始化。
+
+### 4.2 Null
+
+Null：只有一个值，即：null，表示一个空对象指针。
+
+### 4.3 Boolean
+
+Boolean：只有两个值，即：true和false。
+
+### 4.4 Number
+
+Number：使用IEEE754格式来保存整数和浮点数值。
+
+- Number.MAX_VALUE：5e-324
+- Number.MIN_VALUE：1.7976931348623157e-308
+- NaN：非数，任何与NaN的操作都会返回NaN，NaN不与任何数字相等。
+
+### 4.6 String
+
+String：标识由零或者多个16位Unicode字符组成的字符序列。
+
+- 字符串是不可变的。
 
 ### 2.1 基本数据类型
 
 > 基本数据类型占用固定大小的空间，保存在栈内存中。
 
-Undefined：只有一个值，即：undefined，在使用var声明了一个变量，但是未对其加以初始化。
-Null：只有一个值，即：null，表示一个空对象指针。
-Boolean：只有两个值，即：true和false。
-Number：使用IEEE754格式来保存整数和浮点数值。
+
 
 1. 最大值Number.MAX_VALUE，最小值Number.MIN_VALUE，超出这个数值后，会自动转成正无穷Infinity和负无穷-Infinity。
 2. 非数值NaN与任何数运算都会得到NaN。NaN也不等于任何数，包括NaN。
