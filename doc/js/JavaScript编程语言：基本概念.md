@@ -71,20 +71,7 @@ String：标识由零或者多个16位Unicode字符组成的字符序列。
 
 - 字符串是不可变的。
 
-### 2.1 基本数据类型
-
-> 基本数据类型占用固定大小的空间，保存在栈内存中。
-
-
-
-1. 最大值Number.MAX_VALUE，最小值Number.MIN_VALUE，超出这个数值后，会自动转成正无穷Infinity和负无穷-Infinity。
-2. 非数值NaN与任何数运算都会得到NaN。NaN也不等于任何数，包括NaN。
-
-> String：表示由零或者多个16位Unicode字符组成的字符序列，即字符串。
-
-JavaScript里的String属于基本数据类型，不是引用数据类型。
-
-### 2.2 引用数据类型
+### 4.7 Object
 
 > 引用数据类型的值是对象，保存在堆内存中。
 
@@ -95,8 +82,7 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 
 #### Object
 
-
-#### Array
+Array
 
 1. 创建数组有两种方式：① Array构造函数。② 数组字面量表示法。
 2. 数组的length不是只读的，可以通过修改length的大小来移除数组末尾的项。
@@ -112,13 +98,13 @@ JavaScript里的String属于基本数据类型，不是引用数据类型。
 12. 迭代方法every()、filter()、forEach()、map()、some()。
 13. 归并方法reduce()、reduceRight()。
 
-#### Date
+Date
 
 1. parse()方法接收一个日期字符串，然后尝试解析成日期的毫秒数。
 2. UTC()方法接收一组数字，然后尝试解析成日期的毫秒数。
 3. now()方法返回当前日期和时间的毫秒数。
 
-#### RegExp
+RegExp
 
 ```javascript
 var expression = /pattern/flags/
@@ -129,16 +115,16 @@ pattern表示正则表达式，flags表示标志位：
 - i表示不区分大小写。
 - m表示多行模式。
 
-#### Global
+Global
 
 全局方法
 
 1. eval()
 2. encodeURI()
 
-#### Math
+Math
 
-## 三 控制语句
+## 五 控制语句
 
 1. if
 2. while
@@ -149,7 +135,7 @@ pattern表示正则表达式，flags表示标志位：
 7. with：将代码的作用域设定到一个特定的对象中。
 8. switch
 
-## 四 函数
+## 六 函数
 
 函数使用function关键字来声明。
 
