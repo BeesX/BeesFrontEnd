@@ -1,4 +1,4 @@
-# <img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png" alt="BeesFrontEnd" width="80" height="80" align="bottom"/> BeesHybrid
+# <img src="https://github.com/guoxiaoxing/BeesFrontEnd/raw/master/art/logo.png" alt="BeesFrontEnd" width="80" height="80" align="bottom"/> BeesFrontEnd
 
 [![License](https://img.shields.io/github/issues/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
 [![Stars](https://img.shields.io/github/stars/BeesX/BeesHybrid.svg)](https://jitpack.io/#BeesX/BeesHybrid)
@@ -9,7 +9,7 @@
 
 > Bees（蜜蜂），取义蜜蜂精神，取义求实、合作与奉献，这也是BeesX开源技术小组的宗旨，求真务实，合作奉献。本小组当前有两大工作方向：Android系统原理分析与实践、跨端技术原理分析与实践，欢迎感兴趣的同学参与进来。
 
-BeesHybrid项目致力于跨端技术的研究与实践，我们将自上而下的去分析相关的技术原理与最佳实践。前端的技术自上而下大致可以分为以下18层，如下所示：
+BeesFrontEnd项目致力于跨端技术的研究与实践，我们将自上而下的去分析相关的技术原理与最佳实践。前端的技术自上而下大致可以分为以下18层，如下所示：
 
 - 浏览器、Android与iOS
 - 渲染引擎、JavaScript引擎
