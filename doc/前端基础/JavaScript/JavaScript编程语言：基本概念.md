@@ -37,50 +37,32 @@
 1. 区别大小写。
 2. 变量是松散类型的，可以保存任何类型的数据。
 
-## 二 关键字和保留字
-
-## 三 变量
+## 二 变量&赋值
 
 ECMAScript的变量是松散类型，使用var定义。
 
-## 四 数据类型
+## 三 值
 
-### 4.1 Undefined
-
-Undefined：只有一个值，即：undefined，在使用var声明了一个变量，但是未对其加以初始化。
-
-### 4.2 Null
-
-Null：只有一个值，即：null，表示一个空对象指针。
-
-### 4.3 Boolean
+## 四 布尔
 
 Boolean：只有两个值，即：true和false。
 
-### 4.4 Number
+false
+
+- undefined、null
+- false
+- -0，NaN
+- ‘’
+
+以上为假值，其余为真值，值得判断可以使用Boolean(value)进行判断。
+
+## 五 数字
 
 Number：使用IEEE754格式来保存整数和浮点数值。
 
 - Number.MAX_VALUE：5e-324
 - Number.MIN_VALUE：1.7976931348623157e-308
 - NaN：非数，任何与NaN的操作都会返回NaN，NaN不与任何数字相等。
-
-### 4.6 String
-
-String：标识由零或者多个16位Unicode字符组成的字符序列。
-
-- 字符串是不可变的。
-
-### 4.7 Object
-
-> 引用数据类型的值是对象，保存在堆内存中。
-
-1. 引用数据类型可以动态地增加属性。
-2. 基本数据类型按值传递，引用数据类型按引用传递，JavaScript里函数参数都是按值传递的。
-3. 检查类型使用typeof，检测对象类型使用Instanceof。
-4. JavaScript没有块级作用域，没有使用var声明的变量会自动变成全局变量。
-
-#### Object
 
 Array
 
@@ -98,33 +80,11 @@ Array
 12. 迭代方法every()、filter()、forEach()、map()、some()。
 13. 归并方法reduce()、reduceRight()。
 
-Date
+## 六 字符串
 
-1. parse()方法接收一个日期字符串，然后尝试解析成日期的毫秒数。
-2. UTC()方法接收一组数字，然后尝试解析成日期的毫秒数。
-3. now()方法返回当前日期和时间的毫秒数。
+String：标识由零或者多个16位Unicode字符组成的字符序列。
 
-RegExp
-
-```javascript
-var expression = /pattern/flags/
-```
-pattern表示正则表达式，flags表示标志位：
-
-- g表示全局模式。
-- i表示不区分大小写。
-- m表示多行模式。
-
-Global
-
-全局方法
-
-1. eval()
-2. encodeURI()
-
-Math
-
-## 五 控制语句
+## 七 语句
 
 1. if
 2. while
@@ -135,7 +95,7 @@ Math
 7. with：将代码的作用域设定到一个特定的对象中。
 8. switch
 
-## 六 函数
+## 八 函数
 
 函数使用function关键字来声明。
 
@@ -172,3 +132,77 @@ var sum = function(num1, num2){
 ```javascript
 var sum = new Function("num1", "num2", "return nun1 + num2")
 ```
+
+## 九 异常处理
+
+
+## 六 字符串
+
+## 四 数据类型
+
+### 4.1 Undefined
+
+Undefined：只有一个值，即：undefined，在使用var声明了一个变量，但是未对其加以初始化。
+
+### 4.2 Null
+
+Null：只有一个值，即：null，表示一个空对象指针。
+
+### 4.3 Boolean
+
+
+### 4.4 Number
+
+
+
+### 4.6 String
+
+
+
+- 字符串是不可变的。
+
+### 4.7 Object
+
+> 引用数据类型的值是对象，保存在堆内存中。
+
+1. 引用数据类型可以动态地增加属性。
+2. 基本数据类型按值传递，引用数据类型按引用传递，JavaScript里函数参数都是按值传递的。
+3. 检查类型使用typeof，检测对象类型使用Instanceof。
+4. JavaScript没有块级作用域，没有使用var声明的变量会自动变成全局变量。
+
+#### Object
+
+
+Date
+
+1. parse()方法接收一个日期字符串，然后尝试解析成日期的毫秒数。
+2. UTC()方法接收一组数字，然后尝试解析成日期的毫秒数。
+3. now()方法返回当前日期和时间的毫秒数。
+
+RegExp
+
+```javascript
+var expression = /pattern/flags/
+```
+pattern表示正则表达式，flags表示标志位：
+
+- g表示全局模式。
+- i表示不区分大小写。
+- m表示多行模式。
+
+Global
+
+全局方法
+
+1. eval()
+2. encodeURI()
+
+Math
+
+## 五 控制语句
+
+
+
+## 六 函数
+
+
